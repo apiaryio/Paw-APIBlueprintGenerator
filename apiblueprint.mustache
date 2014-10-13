@@ -1,0 +1,36 @@
+# {{{ method }}} {{{ path }}}
+
+{{#request}}
++ Request{{#contentType}} ({{{contentType}}}){{/contentType}}
+
+{{#headers?}}
+    + Headers
+
+            {{#headers}}
+            {{{key}}}: {{{value}}}
+            {{/headers}}
+
+{{/headers?}}
+{{#body?}}
+    + Body
+
+{{/body?}}
+{{{body}}}
+{{/request}}
+{{#response}}
++ Response {{{statusCode}}}{{#contentType}} ({{{contentType}}}){{/contentType}}
+
+{{#headers?}}
+    + Headers
+
+            {{#headers}}
+            {{{key}}}: {{{value}}}
+            {{/headers}}
+
+{{/headers?}}
+{{#body?}}
+    + Body
+
+{{/body?}}
+{{{body}}}
+{{/response}}
