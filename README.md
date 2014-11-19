@@ -1,7 +1,7 @@
-Paw APIBlueprint Generator Extension
+Paw API Blueprint Generator Extension
 ====================================
 
-Paw extension providing support to export APIBlueprint as a code generator.
+Paw extension providing support to export API Blueprint as a code generator.
 
 ![](Screenshot.png)
 
