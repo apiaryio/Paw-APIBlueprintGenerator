@@ -1,0 +1,19 @@
+language: node_js
+node_js:
+- '0.10'
+before_install:
+- npm install coffee-script
+before_script:
+- ./node_modules/.bin/cake archive
+script:
+- ./node_modules/.bin/cake test
+deploy:
+  provider: releases
+  api_key:
+    secure: lONLlmdd/AWWUsojFXQYcPDudSX2EN3P+glvYmIyvWDWMfrJGex5BZuKeyHNLgFj+Juw7lgLs9odPlQatWN8o9T5cS7XF7PGV/MMfdHynTCQyWaS8KJA6D9whm2i11uYTC4+TyCxeEf3HrwR6sjJs8AFkG9ZwzJatf020T5DBKA=
+  file: build/APIBlueprintGenerator.zip
+  skip_cleanup: true
+  on:
+    tags: true
+    all_branches: true
+    repo: apiaryio/Paw-APIBlueprintGenerator

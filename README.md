@@ -1,6 +1,8 @@
 Paw API Blueprint Generator Extension
 ====================================
 
+[![Build Status](https://travis-ci.org/apiaryio/Paw-APIBlueprintGenerator.svg?branch=master?style=flat)](https://travis-ci.org/apiaryio/Paw-APIBlueprintGenerator)
+
 Paw extension providing support to export API Blueprint as a code generator.
 
 ![](Screenshot.png)
@@ -13,26 +15,48 @@ The [Paw extension](http://luckymarmot.com/paw/extensions/APIBlueprintGenerator)
 
 If you would like to develop the extension, you have follow these steps to get a development environment setup.
 
+##### Clone
+
+First of all, clone this repository in any convenient location (e.g `~/Desktop`).
+
+```bash
+$ git clone https://github.com/apiaryio/Paw-APIBlueprintGenerator
+```
+
 ##### Prerequisites
 
-Coffee Script is required to build the extension.
+Install `npm` if needed (e.g. below using [Homebrew](http://brew.sh/)):
 
 ```bash
 $ brew install npm
-$ npm install -g coffee-script
+```
+
+Install dependencies using `npm`:
+
+```bash
+$ npm install
 ```
 
 ##### Development Installation
 
-Once you have Coffee Script installed, you can then clone and build the extension by doing the following:
+During development, build the `.js` script using:
 
 ```bash
-$ git clone https://github.com/apiaryio/Paw-APIBlueprintGenerator ~/Library/Containers/com.luckymarmot.Paw/Data/Library/Application\ Support/com.luckymarmot.Paw/Extensions/io.apiary.PawExtensions.APIBlueprintGenerator
-$ cd ~/Library/Containers/com.luckymarmot.Paw/Data/Library/Application\ Support/com.luckymarmot.Paw/Extensions/io.apiary.PawExtensions.APIBlueprintGenerator
 $ cake build
+```
+
+To install into the Paw Extension directory:
+
+```bash
+$ cake install
+```
+
+Alternatively, use the `watch` command to automatically build and install when a file has been modified:
+
+```bash
+$ cake watch
 ```
 
 ### License
 
 MIT License. See the [LICENSE](LICENSE) file.
-
