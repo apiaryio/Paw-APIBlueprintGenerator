@@ -96,4 +96,6 @@ APIBlueprintGenerator = ->
 
 APIBlueprintGenerator.identifier = "io.apiary.PawExtensions.APIBlueprintGenerator"
 APIBlueprintGenerator.title = "API Blueprint Generator"
+APIBlueprintGenerator.fileExtension = "md"
+
 registerCodeGenerator APIBlueprintGenerator
