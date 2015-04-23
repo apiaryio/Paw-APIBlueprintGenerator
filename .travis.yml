@@ -10,10 +10,9 @@ script:
 deploy:
   provider: releases
   api_key:
-    secure: lONLlmdd/AWWUsojFXQYcPDudSX2EN3P+glvYmIyvWDWMfrJGex5BZuKeyHNLgFj+Juw7lgLs9odPlQatWN8o9T5cS7XF7PGV/MMfdHynTCQyWaS8KJA6D9whm2i11uYTC4+TyCxeEf3HrwR6sjJs8AFkG9ZwzJatf020T5DBKA=
-  file: build/APIBlueprintGenerator.zip
+    secure: Gro51LKeOVYrDg+nGHb2glhbGDP9SbfXryvY6Ql3F5Edfx3kTN5NAVsAN60FTrYreL6czv05jvzT0Y8+PTM9jUMNQbK3Dblln5DNaD5SOs4UCewfOe2z7+Ksi9Zk/iJHAku61j5qwnJSR1EEekVUM8XF79qs5sfIwV3/RKU6IbQ=
+  file: build/APIBlueprintImporter.zip
   skip_cleanup: true
   on:
     tags: true
-    all_branches: true
     repo: apiaryio/Paw-APIBlueprintGenerator
