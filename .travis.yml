@@ -11,7 +11,7 @@ deploy:
   provider: releases
   api_key:
     secure: Gro51LKeOVYrDg+nGHb2glhbGDP9SbfXryvY6Ql3F5Edfx3kTN5NAVsAN60FTrYreL6czv05jvzT0Y8+PTM9jUMNQbK3Dblln5DNaD5SOs4UCewfOe2z7+Ksi9Zk/iJHAku61j5qwnJSR1EEekVUM8XF79qs5sfIwV3/RKU6IbQ=
-  file: build/APIBlueprintImporter.zip
+  file: build/APIBlueprintGenerator.zip
   skip_cleanup: true
   on:
     tags: true
