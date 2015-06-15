@@ -1,4 +1,4 @@
-{spawn} = require 'child_process'
+{spawn, exec} = require 'child_process'
 {ncp} = require 'ncp'
 mkdirp = require 'mkdirp'
 fs = require 'fs'
@@ -74,10 +74,6 @@ archive = (callback) ->
 
 task 'build', ->
     build()
-
-task 'test', ->
-    build () ->
-        # no test to run
 
 task 'install', ->
     build () ->

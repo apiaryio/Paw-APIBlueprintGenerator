@@ -1,16 +1,20 @@
 {
   "name": "Paw-APIBlueprintGenerator",
   "version": "1.0.0",
-  "devDependencies": {
-    "coffee-script": "latest",
-    "mkdirp": "~0.5.0",
-    "ncp": "~1.0.1"
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:apiaryio/Paw-APIBlueprintGenerator.git"
+  },
+  "scripts": {
+    "test": "mocha --require coffee-script/register test/*.coffee"
   },
   "dependencies": {
     "mustache": "~0.8.2"
   },
-  "repository": {
-    "type": "git",
-    "url": "git@github.com:apiaryio/Paw-APIBlueprintGenerator.git"
+  "devDependencies": {
+    "coffee-script": "latest",
+    "mkdirp": "~0.5.0",
+    "ncp": "~1.0.1",
+    "mocha": "latest"
   }
 }
