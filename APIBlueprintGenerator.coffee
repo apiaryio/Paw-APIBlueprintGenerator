@@ -13,7 +13,10 @@ APIBlueprintGenerator = ->
       return null
 
     headers = []
+    is_json = false
     for key, value of exchange.responseHeaders
+      if key == 'Content-Type'
+        is_json = (value.search(/(json)/i) > -1)
       if key in ['Content-Type', 'Connection', 'Date', 'Via', 'Server', 'Content-Length']
         continue
 
@@ -23,6 +26,8 @@ APIBlueprintGenerator = ->
     body = exchange.responseBody
     has_body = body.length > 0
     if has_body
+      if is_json
+        body = JSON.stringify(JSON.parse(body),null,4)
       body_indentation = '        '
       if has_headers
         body_indentation += '    '
@@ -45,7 +50,10 @@ APIBlueprintGenerator = ->
   #
   @request = (paw_request) ->
     headers = []
+    is_json = false
     for key, value of paw_request.headers
+      if key == 'Content-Type'
+        is_json = (value.search(/(json)/i) > -1)
       if key in ['Content-Type']
         continue
 
@@ -55,6 +63,8 @@ APIBlueprintGenerator = ->
     body = paw_request.body
     has_body = body.length > 0
     if has_body
+      if is_json
+        body = JSON.stringify(JSON.parse(body),null,4)
       body_indentation = '        '
       if has_headers
         body_indentation += '    '
