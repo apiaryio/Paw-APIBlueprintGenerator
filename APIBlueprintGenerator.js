@@ -15,10 +15,8 @@
       ref = exchange.responseHeaders;
       for (key in ref) {
         value = ref[key];
-        if (key === 'Content-Type') {
-          is_json = value.search(/(json)/i) > -1;
-        }
         if (key === 'Content-Type' || key === 'Connection' || key === 'Date' || key === 'Via' || key === 'Server' || key === 'Content-Length') {
+          is_json = key === 'Content-Type' && value.search(/(json)/i) > -1;
           continue;
         }
         headers.push({
@@ -57,8 +55,6 @@
         value = ref[key];
         if (key === 'Content-Type') {
           is_json = value.search(/(json)/i) > -1;
-        }
-        if (key === 'Content-Type') {
           continue;
         }
         headers.push({
