@@ -27,7 +27,7 @@ APIBlueprintGenerator = ->
     has_body = body.length > 0
     if has_body
       if is_json
-        body = JSON.stringify(JSON.parse(body),null,4)
+        body = JSON.stringify(JSON.parse(body), null, 4)
       body_indentation = '        '
       if has_headers
         body_indentation += '    '
@@ -64,7 +64,7 @@ APIBlueprintGenerator = ->
     has_body = body.length > 0
     if has_body
       if is_json
-        body = JSON.stringify(JSON.parse(body),null,4)
+        body = JSON.stringify(JSON.parse(body), null, 4)
       body_indentation = '        '
       if has_headers
         body_indentation += '    '
