@@ -1,4 +1,10 @@
-require "mustache.js"
+# in API v0.2.0 and below (Paw 2.2.2 and below), require had no return value
+((root) ->
+  if root.bundle?.minApiVersion('0.2.0')
+    root.Mustache = require("./mustache")
+  else
+    require("mustache.js")
+)(this)
 
 APIBlueprintGenerator = ->
 
