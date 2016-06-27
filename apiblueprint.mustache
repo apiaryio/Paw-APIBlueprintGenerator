@@ -1,5 +1,8 @@
 # {{{ method }}} {{{ path }}}
 
+{{#request.description?}}
+{{{request.description}}}
+{{/request.description?}}
 {{#request}}
 + Request{{#contentType}} ({{{contentType}}}){{/contentType}}
 

@@ -74,6 +74,9 @@ APIBlueprintGenerator = ->
         body_indentation += '    '
       body = body.replace(/^/gm, body_indentation)
 
+    description = paw_request.description
+    has_description = description && description.length > 0
+
     if has_headers || has_body || paw_request.headers['Content-Type']
       return {
         "headers?": has_headers,
@@ -81,6 +84,8 @@ APIBlueprintGenerator = ->
         contentType: paw_request.headers['Content-Type'],
         "body?": has_headers && has_body,
         body: body,
+        "description?": has_description,
+        description: description,
       }
 
   # Get a path from a URL
