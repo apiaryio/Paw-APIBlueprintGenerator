@@ -22,7 +22,8 @@ APIBlueprintGenerator = ->
     is_json = false
     for key, value of exchange.responseHeaders
       if key in ['Content-Type', 'Connection', 'Date', 'Via', 'Server', 'Content-Length']
-        is_json = (key == 'Content-Type' && value.search(/(json)/i) > -1)
+        if key == 'Content-Type'
+          is_json = value.search(/(json)/i) > -1
         continue
 
       headers.push({ key: key, value: value })
