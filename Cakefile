@@ -27,7 +27,8 @@ build_coffee = (callback) ->
 build_copy = () ->
     fs.writeFileSync "#{ build_dir }/README.md", fs.readFileSync("./README.md")
     fs.writeFileSync "#{ build_dir }/LICENSE", fs.readFileSync("./LICENSE")
-    fs.writeFileSync "#{ build_dir }/apiblueprint.mustache", fs.readFileSync("./apiblueprint.mustache")
+    fs.writeFileSync "#{ build_dir }/apiblueprint-action.mustache", fs.readFileSync("./apiblueprint-action.mustache")
+    fs.writeFileSync "#{ build_dir }/apiblueprint-group.mustache", fs.readFileSync("./apiblueprint-group.mustache")
     fs.writeFileSync "#{ build_dir }/mustache.js", fs.readFileSync("./node_modules/mustache/mustache.js")
 
 # build: build CoffeeScript and copy files to build directory

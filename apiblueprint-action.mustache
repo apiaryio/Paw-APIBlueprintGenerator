@@ -1,4 +1,9 @@
-# {{{ method }}} {{{ path }}}
+{{#name}}
+{{{ level }}} {{{ name }}} [{{{ method }}} {{{ path }}}]
+{{/name}}
+{{^name}}
+{{{ level }}} {{{ method }}} {{{ path }}}
+{{/name}}
 
 {{#request.description?}}
 {{{request.description}}}

@@ -7,6 +7,8 @@
 )(this)
 
 APIBlueprintGenerator = ->
+  templateAction = readFile("apiblueprint-action.mustache")
+  templateGroup = readFile("apiblueprint-group.mustache")
 
   # Generate a response dictionary for the mustache context from a paw HTTPExchange
   #
@@ -101,16 +103,48 @@ APIBlueprintGenerator = ->
 
     path
 
-  @generate = (context) ->
-    paw_request = context.getCurrentRequest()
+  @renderPawItems = (items, level = 1) ->
+    sections = for item in items
+      @renderPawItem(item, level)
+
+    sections.join("\n")
+
+  @renderPawItem = (item, level = 1) ->
+    if item.toString().match(/^RequestGroup/)
+      @renderPawGroup(item, level)
+    else
+      @renderPawRequest(item, level)
+
+  @renderPawGroup = (paw_group, level = 1) ->
+    sections = []
+
+    sections.push Mustache.render(templateGroup,
+      level: "#".repeat(level),
+      name: paw_group.name
+    )
+
+    children = paw_group.getChildren().sort (a, b) -> a.order - b.order
+
+    sections = sections.concat @renderPawItems(children, level + 1)
+
+    sections.join("\n")
+
+  @renderPawRequest = (paw_request, level = 1) ->
     url = paw_request.url
-    template = readFile("apiblueprint.mustache")
-    Mustache.render(template,
+    Mustache.render(templateAction,
+      level: "#".repeat(level),
+      name: paw_request.name.replace(/[\[\]\(\)]/g, ''),
       method: paw_request.method,
       path: @path(url),
       request: @request(paw_request),
       response: @response(paw_request.getLastExchange()),
     )
+
+  @generate = (context, requests, options) ->
+    if context.runtimeInfo.task == 'exportAllRequests'
+      @renderPawItems(context.getRootRequestTreeItems())
+    else
+      @renderPawItems(requests)
 
   return
 
